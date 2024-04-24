@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Factura</title>
+  </head>
+  <script>
+        function createMoreInputs()
+        {
+            const divMainFrmData = document.getElementById( "divMainFrmData" );
+            var inputs = document.getElementsByClassName( "DataInput" );
+            const divFrmLine = document.createElement( "div" );
+            const formLine = divMainFrmData.querySelectorAll("div").length;
+            divFrmLine.id = divMainFrmData.querySelectorAll("div").length;
+
+            const inputText = document.createElement( "input" );
+            inputText.id = inputText.name = "cif" + formLine;
+            inputText.placeholder = "CIF...";
+            inputText.type = "text";
+            inputText.className = "DataInput";
+
+            const inputText2 = document.createElement( "input" );
+            inputText2.id = inputText2.name = "nombre" + formLine;
+            inputText2.placeholder = "Nombre...";
+            inputText2.type = "text";
+            inputText2.className = "DataInput";
+
+            const inputText3 = document.createElement( "input" );
+            inputText3.id = inputText3.name = "direccion" + formLine;
+            inputText3.placeholder = "Dirección...";
+            inputText3.type = "text";
+            inputText3.className = "DataInput";
+
+            const inputText4 = document.createElement( "input" );
+            inputText4.id = inputText4.name = "poblacion" + formLine;
+            inputText4.placeholder = "Población...";
+            inputText4.type = "text";
+            inputText4.className = "DataInput";
+
+            const inputText5 = document.createElement( "input" );
+            inputText5.id = inputText5.name = "provincia" + formLine;
+            inputText5.placeholder = "Provincia...";
+            inputText5.type = "text";
+            inputText5.className = "DataInput";
+
+            const inputText6 = document.createElement( "input" );
+            inputText6.id = inputText6.name = "codigoPostal" + formLine;
+            inputText6.placeholder = "Código Postal...";
+            inputText6.type = "text";
+            inputText6.className = "DataInput";
+
+            const inputText7 = document.createElement( "input" );
+            inputText7.id = inputText7.name = "pais" + formLine;
+            inputText7.placeholder = "País...";
+            inputText7.type = "text";
+            inputText7.className = "DataInput";
+
+            const inputText8 = document.createElement( "input" );
+            inputText8.id = inputText8.name = "contacto" + formLine;
+            inputText8.placeholder = "Contacto...";
+            inputText8.type = "text";
+            inputText8.className = "DataInput";
+
+            const inputText9 = document.createElement( "input" );
+            inputText9.id = inputText9.name = "email" + formLine;
+            inputText9.placeholder = "eMail...";
+            inputText9.type = "text";
+            inputText9.className = "DataInput";
+
+            const inputText10 = document.createElement( "input" );
+            inputText10.id = inputText10.name = "telefono" + formLine;
+            inputText10.placeholder = "Teléfono...";
+            inputText10.type = "text";
+            inputText10.className = "DataInput";
+
+            divMainFrmData.appendChild( document.createElement( "p" ) );
+
+            divFrmLine.appendChild( inputText );
+            divFrmLine.appendChild( inputText2 );
+            divFrmLine.appendChild( inputText3 );
+            divFrmLine.appendChild( inputText4 );
+            divFrmLine.appendChild( inputText5 );
+            divFrmLine.appendChild( inputText6 );
+            divFrmLine.appendChild( inputText7 );
+            divFrmLine.appendChild( inputText8 );
+            divFrmLine.appendChild( inputText9 );
+            divFrmLine.appendChild( inputText10 );
+
+            divMainFrmData.appendChild( divFrmLine );
+        }
+    </script>
+  <body>
+    <h1 style="color:blue">Factura</h1>
+    <form id="frmInput" action="/hi" method="post">
+        <div id="divMainFrmData">
+        </div>
+        <p>
+            <input type="button" value="+" onclick="createMoreInputs()" />
+            <input type="submit" value="Enviar" />
+        </p>
+    </form>
+  </body>
+ </html>
