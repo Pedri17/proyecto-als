@@ -8,6 +8,7 @@ from model.User import User
 
 from views.user.user import user_blueprint
 from views.user.login import login_blueprint
+from views.user.register import register_blueprint
 
 
 def create_app():
@@ -20,6 +21,7 @@ def create_app():
 
     flapp.register_blueprint(user_blueprint)
     flapp.register_blueprint(login_blueprint)
+    flapp.register_blueprint(register_blueprint)
 
     return flapp, sirop, login
 
@@ -44,7 +46,13 @@ def main():
     if usr is None:
         return flask.redirect("/login")
     else:
-        return flask.redirect("/login")
+        return """
+                <!DOCTYPE html>
+                <html>
+                    <head/>
+                    <body>PRUEBA</body>
+                </html>
+                """
 
 
 if __name__ == "__main__":

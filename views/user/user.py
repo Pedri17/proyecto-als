@@ -17,22 +17,24 @@ user_blueprint, srp = get_blueprint()
 
 
 @user_blueprint.route("/add", methods=["POST"])
-def user_add():
-    usr_email = flask.request.form.get("edEmail", "").strip()
-    usr_passw = flask.request.form.get("edPswd", "").strip()
+def user_add(username=None, password=None):
+    if username is None:
+        username = flask.request.form.get("username", "").strip()
+    if password is None:
+        password = flask.request.form.get("password", "").strip()
 
-    if (not usr_email
-            or not usr_passw):
+    if (not username
+            or not password):
         flask.flash("Faltan credenciales...")
         return flask.redirect("/")
     ...
 
-    if User.find(srp, usr_email):
+    if User.find(srp, username):
         flask.flash("Pero... ¡si ya estás en el sistema!")
         return flask.redirect("/")
     ...
 
-    usr = User(usr_email, usr_passw)
+    usr = User(username, password)
     srp.save(usr)
     flask.flash("Ahora ya puedes entrar con tus nuevas credenciales.")
     return flask.redirect("/")

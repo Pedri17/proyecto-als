@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Estructura base">
+    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Base funcional con login">
+      <change afterPath="$PROJECT_DIR$/views/user/register.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/user/static/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714067885023</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Base funcional con login">
+      <option name="closed" value="true" />
+      <created>1714069299113</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714069299113</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,6 +189,7 @@
     <MESSAGE value="Estructura inicial" />
     <MESSAGE value="Page base" />
     <MESSAGE value="Estructura base" />
-    <option name="LAST_COMMIT_MESSAGE" value="Estructura base" />
+    <MESSAGE value="Base funcional con login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Base funcional con login" />
   </component>
 </project>
