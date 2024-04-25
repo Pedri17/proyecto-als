@@ -11,7 +11,7 @@ from views.user.login import login_blueprint
 
 
 def create_app():
-    flapp = flask.Flask(__name__, instance_relative_config=True)
+    flapp = flask.Flask(__name__)
     sirop = sirope.Sirope()
     login = flask_login.login_manager.LoginManager()
 
