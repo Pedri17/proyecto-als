@@ -18,6 +18,22 @@
                 <p id="content">{{ contenido }}</p>
             </div>
             <br>
+            <div class="form-group">
+                Creador:
+                <b id="creator">{{ creador }}</b>
+            </div>
+             <div id="div-user-selector">
+                Colaboradores:
+                <br>
+                {% if users %}
+                    <ul>
+                        {% for thisUsuario in users %}
+                            <li id="username_to_selector">{{ thisUsuario }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <br>
             <button type="submit" name="buttonAction" value="return">Volver</button>
         </form>
     </div>

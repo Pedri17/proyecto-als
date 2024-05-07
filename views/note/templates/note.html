@@ -18,19 +18,15 @@
                 <br>
                 <textarea id="content" name="content"></textarea>
             </div>
-            <div class="form-group">
+            <div id="div-user-selector">
                 Colaboradores:
-                {% if users %}
-                    {% for thisUsuario in users %}
-                        <div id="div-user-{{ thisUsuario }}">
-                            <label id="username_to_selector">{{ thisUsuario }}&nbsp;&nbsp;&nbsp;</label>
-                            <input type="button" name="buttonUsers" value="Eliminar" onclick="removeUser('{{ thisUsuario }}')">
-                            <input type="hidden" name="username_from_selector" value="{{ thisUsuario }}">
-                        </div>
-                    {% endfor %}
-                {% endif %}
+                <ul id="list-user-selector"></ul>
                 <br>
             </div>
+            <label>Nuevo usuario:</label>
+            <input type="text" id="user-add-name">
+            <input type="button" name="buttonUsers" value="Añadir" onclick="addUser()">
+            <br>
             {% if allFolders %}
                 <div class="form-group">
                     <label for="selectFolder">Carpeta: </label>

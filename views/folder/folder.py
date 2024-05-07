@@ -42,12 +42,9 @@ def answer():
 @folder_blueprint.route("/<string:id>/edit")
 def editFolderForm(id):
     thisFolder = Folder.find(srp, srp.oid_from_safe(id))
-    users = []
-    for thisUser in thisFolder.usuarios:
-        users.append(User.find(srp, thisUser))
 
     sust = {
-        "users": users,
+        "users": thisFolder.usuarios,
         "actualName": thisFolder.nombre
     }
 

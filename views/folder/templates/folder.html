@@ -14,15 +14,7 @@
                 <input type="text" id="title" name="title">
                 <div id="div-user-selector">
                     Usuarios:
-                    {% if users %}
-                        {% for thisUsuario in users %}
-                        <div id="div-user-{{ thisUsuario.nombre }}">
-                            <label id="username_to_selector">{{ thisUsuario.nombre }}&nbsp;&nbsp;&nbsp;</label>
-                            <input type="button" name="buttonUsers" value="Eliminar" onclick="removeUser('{{ thisUsuario }}')">
-                            <input type="hidden" name="username_from_selector" value="{{ thisUsuario.nombre }}">
-                        </div>
-                        {% endfor %}
-                    {% endif %}
+                    <ul id="list-user-selector"></ul>
                 </div>
                 <label>Nuevo usuario:</label>
                 <input type="text" id="user-add-name">

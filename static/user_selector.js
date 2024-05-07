@@ -1,5 +1,6 @@
 function addUser(){
     const divFormUser = document.getElementById( "div-user-selector" );
+    var listUserSelector = document.getElementById( "list-user-selector" );
     var username = document.getElementById( "user-add-name" ).value;
     var divUsuario = document.createElement("div");
         divUsuario.id = "div-user-" + username;
@@ -18,7 +19,15 @@ function addUser(){
 
         divUsuario.appendChild(botonEliminar);
 
-        divFormUser.appendChild(divUsuario);
+        if(listUserSelector){
+            separador = document.createElement("li")
+            separador.appendChild(divUsuario)
+            separador.id = "li-user-"+username;
+            listUserSelector.appendChild(separador)
+        }else{
+            divFormUser.appendChild(divUsuario);
+        }
+
         document.getElementById( "user-add-name" ).value = ""
 
     var nombreComoInput = document.createElement("input");
@@ -32,7 +41,10 @@ function addUser(){
 
 function removeUser(username){
     var thisUser = document.getElementById("div-user-"+username);
-    if(thisUser){
+    var thisUserList = document.getElementById("li-user-"+username);
+    if(thisUserList){
+        thisUserList.remove();
+    }else if(thisUser){
         thisUser.remove()
     }
 }

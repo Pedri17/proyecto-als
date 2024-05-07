@@ -6,10 +6,18 @@
 </head>
 <body>
     <h1> Note Manager </h1>
+    <div id="div-usuario">
+        Usuario:
+        <b>{{ currentUser }}</b>
+        <form action="" method="post">
+            <button type="submit" name="buttonNotes" value="userExit">Desconectarse</button>
+        </form>
+    </div>
+    <br>
     <form action="" method="post">
         <button type="submit" name="buttonNotes" value="newNote">Nueva nota</button>
-         <button type="submit" name="buttonNotes" value="newFolder">Nueva carpeta</button>
-     </form>
+        <button type="submit" name="buttonNotes" value="newFolder">Nueva carpeta</button>
+    </form>
     <div id="folders-container">
         {% if folders %}
             <h2> Carpetas </h2>

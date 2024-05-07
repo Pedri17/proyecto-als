@@ -1,4 +1,5 @@
 import flask
+import flask_login
 import sirope
 
 from model.Folder import Folder
@@ -28,7 +29,8 @@ def note():
 
     sust = {
         "notes": Note.get_all_notes(srp, User.current()),
-        "folders": folders
+        "folders": folders,
+        "currentUser": User.current().username
     }
 
     return flask.render_template("noteMenu.html", **sust)
@@ -43,7 +45,10 @@ def answer():
         thisAction = buttonAction.split("/")[2]
         return flask.redirect("/folder/"+srp.safe_from_oid(sirope.OID.from_text(thisOID)) + "/" + thisAction)
 
-    if buttonAction == "newNote":
+    if buttonAction == "userExit":
+        flask_login.logout_user()
+        return flask.redirect("/")
+    elif buttonAction == "newNote":
         return flask.redirect("/note/add")
     elif buttonAction == "newFolder":
         return flask.redirect("/folder/add")
@@ -67,9 +72,10 @@ def createNote():
     contenido = flask.request.form["content"]
     buttonAction = flask.request.form["buttonAction"]
     newFolderStrOID = flask.request.form["selectFolder"]
+    usernames = flask.request.form.getlist("username_from_selector")
 
     if buttonAction == "create":
-        newNote = Note(titulo, contenido, User.current().username, [])
+        newNote = Note(titulo, contenido, User.current().username, usernames)
         oid = srp.save(newNote)
         if newFolderStrOID is not None and newFolderStrOID != "None":
             newFolder = Folder.find(srp, sirope.OID.from_text(newFolderStrOID))
@@ -84,7 +90,6 @@ def createNote():
 @note_blueprint.route("/<string:id>/delete")
 def deleteNote(id):
     noteOID = srp.oid_from_safe(id)
-    noteToDelete = Note.find(srp, noteOID)
     Folder.delete_note_from_folders(srp, noteOID)
     srp.delete(noteOID)
     return flask.redirect("/note/")
@@ -141,7 +146,9 @@ def seeNoteForm(id):
 
     sust = {
         "titulo": thisNote.titulo,
-        "contenido": thisNote.contenido
+        "contenido": thisNote.contenido,
+        "creador": thisNote.creador,
+        "users": thisNote.editores
     }
     return flask.render_template("seeNote.html", **sust)
 

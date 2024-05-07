@@ -1,3 +1,4 @@
+import flask
 import flask_login
 import sirope
 import werkzeug.security as safe
