@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear nota</title>
+    <script src="{{ url_for('static', filename='user_selector.js') }}"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Crear nota</h2>
+        <form id="main-form" action="" method="post">
+            <div class="form-group">
+                Título:
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="form-group">
+                Contenido:
+                <br>
+                <textarea id="content" name="content"></textarea>
+            </div>
+            <div class="form-group">
+                Colaboradores:
+                {% if users %}
+                    {% for thisUsuario in users %}
+                        <div id="div-user-{{ thisUsuario }}">
+                            <label id="username_to_selector">{{ thisUsuario }}&nbsp;&nbsp;&nbsp;</label>
+                            <input type="button" name="buttonUsers" value="Eliminar" onclick="removeUser('{{ thisUsuario }}')">
+                            <input type="hidden" name="username_from_selector" value="{{ thisUsuario }}">
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <br>
+            </div>
+            {% if allFolders %}
+                <div class="form-group">
+                    <label for="selectFolder">Carpeta: </label>
+                    <select name="selectFolder" id="selectFolder">
+                        <option value="None"></option>
+                        {% for thisFolder in allFolders %}
+                                <option value="{{ thisFolder.__oid__ }}">{{ thisFolder.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            {% endif %}
+            <br>
+            <button type="submit" name="buttonAction" value="create">Crear</button>
+            <button type="submit" name="buttonAction" value="return">Volver</button>
+        </form>
+    </div>
+</body>
+</html>

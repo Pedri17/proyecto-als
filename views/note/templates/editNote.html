@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar nota</title>
+    <script src="{{ url_for('static', filename='user_selector.js') }}"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Editar nota</h2>
+        <form action="" method="post" id="main-form">
+            <div class="form-group">
+                Título:
+                <input type="text" id="title" name="title" value="{{ titulo }}">
+            </div>
+            <div class="form-group">
+                Contenido:
+                <br>
+                <textarea id="content" name="content">{{ contenido }}</textarea>
+            </div>
+            <div id="div-user-selector">
+                Colaboradores:
+                <br>
+                {% if users %}
+                    {% for thisUsuario in users %}
+                        <div id="div-user-{{ thisUsuario }}">
+                            <label id="username_to_selector">{{ thisUsuario }}&nbsp;&nbsp;&nbsp;</label>
+                            <input type="button" name="buttonUsers" value="Eliminar" onclick="removeUser('{{ thisUsuario }}')">
+                            <input type="hidden" name="username_from_selector" value="{{ thisUsuario }}">
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <label>Nuevo usuario:</label>
+                <input type="text" id="user-add-name">
+                <input type="button" name="buttonUsers" value="Añadir" onclick="addUser()">
+            </div>
+            <br>
+            {% if allFolders %}
+                <div class="form-group">
+                    <label for="selectFolder">Carpeta: </label>
+                    <select name="selectFolder" id="selectFolder">
+                        <option value="None"></option>
+                        {% for thisFolder in allFolders %}
+                            {% if actualNote in thisFolder.notas %}
+                                <option value="{{ thisFolder.__oid__ }}" selected>{{ thisFolder.nombre }}</option>
+                            {% else %}
+                                <option value="{{ thisFolder.__oid__ }}">{{ thisFolder.nombre }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            {% endif %}
+            <br>
+            <button type="submit" name="buttonAction" value="edit">Editar</button>
+            <button type="submit" name="buttonAction" value="return">Volver</button>
+        </form>
+    </div>
+</body>
+</html>

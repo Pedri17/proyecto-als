@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Base funcional con login">
-      <change afterPath="$PROJECT_DIR$/views/user/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/user/static/register.html" afterDir="false" />
+    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Terminados login y register">
+      <change afterPath="$PROJECT_DIR$/model/Folder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Note.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/user_selector.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/user_selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/folder/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/folder/folder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/folder/templates/editFolder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/folder/templates/folder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/note/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/note/note.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/note/templates/editNote.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/note/templates/note.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/note/templates/noteMenu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/note/templates/seeNote.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -52,24 +62,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.app.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/pedro/PycharmProjects/SharedNotesPy/views/folder/templates",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\folder\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\note\templates" />
+      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\static" />
+      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\folder\templates" />
       <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy" />
       <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views" />
-      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\user" />
-      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\templates" />
-      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\static" />
     </key>
   </component>
   <component name="RunManager">
@@ -104,7 +118,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-python-sdk-09665e90c3a7-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15026.15" />
       </set>
     </attachedChunks>
   </component>
@@ -157,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714069299113</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Terminados login y register">
+      <option name="closed" value="true" />
+      <created>1714072830879</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714072830879</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +212,7 @@
     <MESSAGE value="Page base" />
     <MESSAGE value="Estructura base" />
     <MESSAGE value="Base funcional con login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base funcional con login" />
+    <MESSAGE value="Terminados login y register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminados login y register" />
   </component>
 </project>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note Manager</title>
+</head>
+<body>
+    <h1> Note Manager </h1>
+    <form action="" method="post">
+        <button type="submit" name="buttonNotes" value="newNote">Nueva nota</button>
+         <button type="submit" name="buttonNotes" value="newFolder">Nueva carpeta</button>
+     </form>
+    <div id="folders-container">
+        {% if folders %}
+            <h2> Carpetas </h2>
+            {% for thisFolder in folders %}
+                <form action="" method="post">
+                    <h3>
+                        {{ thisFolder.nombre }}
+                        <button type="submit" name="buttonNotes" value="folder/{{ thisFolder.__oid__ }}/edit">Editar</button>
+                        <button type="submit" name="buttonNotes" value="folder/{{ thisFolder.__oid__ }}/delete">Eliminar</button>
+                    </h3>
+                </form>
+                {% if thisFolder.notas %}
+                    <ul>
+                        {% for thisNote in thisFolder.notas %}
+                            <li>
+                                {% if thisNote %}
+                                    <form action="" method="post">
+                                        {{ thisNote.titulo }}&nbsp;&nbsp;
+                                        <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/see">Ver</button>
+                                        <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/edit">Editar</button>
+                                        <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/delete">Eliminar</button>
+                                    </form>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <br>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div id="notes-container">
+        {% if notes %}
+            <h2> Notas </h2>
+            {% for thisNote in notes %}
+                <form action="" method="post">
+                    {{ thisNote.titulo }}
+                    <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/see">Ver</button>
+                    <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/edit">Editar</button>
+                    <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/delete">Eliminar</button>
+                </form>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

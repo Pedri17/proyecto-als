@@ -9,6 +9,8 @@ from model.User import User
 from views.user.user import user_blueprint
 from views.user.login import login_blueprint
 from views.user.register import register_blueprint
+from views.note.note import note_blueprint
+from views.folder.folder import folder_blueprint
 
 
 def create_app():
@@ -22,6 +24,8 @@ def create_app():
     flapp.register_blueprint(user_blueprint)
     flapp.register_blueprint(login_blueprint)
     flapp.register_blueprint(register_blueprint)
+    flapp.register_blueprint(note_blueprint)
+    flapp.register_blueprint(folder_blueprint)
 
     return flapp, sirop, login
 
@@ -46,13 +50,7 @@ def main():
     if usr is None:
         return flask.redirect("/login")
     else:
-        return """
-                <!DOCTYPE html>
-                <html>
-                    <head/>
-                    <body>PRUEBA</body>
-                </html>
-                """
+        return flask.redirect("/note")
 
 
 if __name__ == "__main__":

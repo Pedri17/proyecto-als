@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear carpeta</title>
+    <script src="{{ url_for('static', filename='user_selector.js') }}"></script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Crear carpeta</h2>
+        <form id="main-form" action="" method="post">
+            <div class="form-group">
+                Nombre:
+                <input type="text" id="title" name="title">
+                <div id="div-user-selector">
+                    Usuarios:
+                    {% if users %}
+                        {% for thisUsuario in users %}
+                        <div id="div-user-{{ thisUsuario.nombre }}">
+                            <label id="username_to_selector">{{ thisUsuario.nombre }}&nbsp;&nbsp;&nbsp;</label>
+                            <input type="button" name="buttonUsers" value="Eliminar" onclick="removeUser('{{ thisUsuario }}')">
+                            <input type="hidden" name="username_from_selector" value="{{ thisUsuario.nombre }}">
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <label>Nuevo usuario:</label>
+                <input type="text" id="user-add-name">
+                <input type="button" name="buttonUsers" value="Añadir" onclick="addUser()">
+            </div>
+            <br>
+            <button type="submit" name="buttonAction" value="create">Crear</button>
+            <button type="submit" name="buttonAction" value="return">Volver</button>
+        </form>
+    </div>
+</body>
+</html>
