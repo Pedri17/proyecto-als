@@ -19,7 +19,7 @@ register_blueprint, srp = get_blueprint()
 
 @register_blueprint.route("/")
 def register():
-    return flask.send_from_directory(register_blueprint.static_folder, "register.html")
+    return flask.render_template("register.html")
 
 
 @register_blueprint.route("/", methods=["POST"])
@@ -34,6 +34,7 @@ def answer():
             user_add(username, password)
             return flask.redirect("/login")
         else:
+            flask.flash("La contraseñas no coinciden", "password")
             return flask.redirect("/register")
     elif buttonAction == "return":
         return flask.redirect("/")

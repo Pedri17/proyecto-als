@@ -13,6 +13,7 @@ function addUser(){
         botonEliminar.type = "button";
         botonEliminar.name = "buttonUsers";
         botonEliminar.value = "Eliminar";
+        botonEliminar.className = "btn btn-secondary btn-sm"
         botonEliminar.addEventListener("click", function() {
           removeUser(username);
         });
@@ -20,10 +21,11 @@ function addUser(){
         divUsuario.appendChild(botonEliminar);
 
         if(listUserSelector){
-            separador = document.createElement("li")
-            separador.appendChild(divUsuario)
+            separador = document.createElement("li");
             separador.id = "li-user-"+username;
-            listUserSelector.appendChild(separador)
+            separador.className = "list-group-item";
+            separador.appendChild(divUsuario);
+            listUserSelector.appendChild(separador);
         }else{
             divFormUser.appendChild(divUsuario);
         }

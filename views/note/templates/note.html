@@ -2,46 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear nota</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="{{ url_for('static', filename='user_selector.js') }}"></script>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Crear nota</h2>
-        <form id="main-form" action="" method="post">
-            <div class="form-group">
-                Título:
-                <input type="text" id="title" name="title">
-            </div>
-            <div class="form-group">
-                Contenido:
-                <br>
-                <textarea id="content" name="content"></textarea>
-            </div>
-            <div id="div-user-selector">
-                Colaboradores:
-                <ul id="list-user-selector"></ul>
-                <br>
-            </div>
-            <label>Nuevo usuario:</label>
-            <input type="text" id="user-add-name">
-            <input type="button" name="buttonUsers" value="Añadir" onclick="addUser()">
-            <br>
-            {% if allFolders %}
-                <div class="form-group">
-                    <label for="selectFolder">Carpeta: </label>
-                    <select name="selectFolder" id="selectFolder">
-                        <option value="None"></option>
-                        {% for thisFolder in allFolders %}
-                                <option value="{{ thisFolder.__oid__ }}">{{ thisFolder.nombre }}</option>
-                        {% endfor %}
-                    </select>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Crear nota</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="main-form" action="" method="post">
+                            <div class="card">
+                                <label for="title" class="card-header">Título:</label>
+                                <div class="card-body">
+                                    <input type="text" class="form-control" id="title" name="title">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card">
+                                <label for="content" class="card-header">Contenido:</label>
+                                <textarea class="form-control" id="content" name="content" rows="5"></textarea>
+                            </div>
+                            <br>
+                            <div id="div-user-selector" class="form-group">
+                                <div class="card">
+                                    <label for="user-add-name" class="card-header">Colaboradores:</label>
+                                    <div class="card-body">
+                                        <ul id="list-user-selector" class="list-group list-group-flush"></ul>
+                                    </div>
+                                    <div class="card-footer input-group">
+                                        <input type="text" class="form-control" id="user-add-name">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-primary" name="buttonUsers" onclick="addUser()">
+                                                Añadir
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                            </div>
+                            {% if allFolders %}
+                                <div class="card">
+                                    <label for="selectFolder" class="card-header">Carpeta:</label>
+                                        <div class="card-body">
+                                           <select class="form-control" name="selectFolder" id="selectFolder">
+                                            <option value="None"></option>
+                                            {% for thisFolder in allFolders %}
+                                                <option value="{{ thisFolder.__oid__ }}">{{ thisFolder.nombre }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                            {% endif %}
+                            <button type="submit" class="btn btn-success" name="buttonAction" value="create">Crear</button>
+                            <button type="submit" class="btn btn-secondary" name="buttonAction" value="return">Volver</button>
+                        </form>
+                    </div>
                 </div>
-            {% endif %}
-            <br>
-            <button type="submit" name="buttonAction" value="create">Crear</button>
-            <button type="submit" name="buttonAction" value="return">Volver</button>
-        </form>
+            </div>
+        </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

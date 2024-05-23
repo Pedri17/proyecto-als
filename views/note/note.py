@@ -61,7 +61,7 @@ def answer():
 @note_blueprint.route("/add")
 def newNoteForm():
     sust = {
-        "allFolders": srp.load_all(Folder)
+        "allFolders": Folder.get_all_folders(srp, User.current())
     }
     return flask.render_template("note.html", **sust)
 
@@ -103,7 +103,7 @@ def editNoteForm(id):
         users.append(str(thisUser))
 
     sust = {
-        "allFolders": srp.load_all(Folder),
+        "allFolders": Folder.get_all_folders(srp, User.current()),
         "actualNote": srp.oid_from_safe(id),
         "titulo": thisNote.titulo,
         "contenido": thisNote.contenido,

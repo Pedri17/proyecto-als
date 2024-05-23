@@ -2,62 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar nota</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="{{ url_for('static', filename='user_selector.js') }}"></script>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Editar nota</h2>
-        <form action="" method="post" id="main-form">
-            <div class="form-group">
-                Título:
-                <input type="text" id="title" name="title" value="{{ titulo }}">
-            </div>
-            <div class="form-group">
-                Contenido:
-                <br>
-                <textarea id="content" name="content">{{ contenido }}</textarea>
-            </div>
-            <div id="div-user-selector">
-                Colaboradores:
-                <br>
-                {% if users %}
-                    <ul id="list-user-selector">
-                        {% for thisUsuario in users %}
-                            <li id="li-user-{{ thisUsuario }}">
-                                <div id="div-user-{{ thisUsuario }}">
-                                    <label id="username_to_selector">{{ thisUsuario }}&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="button" name="buttonUsers" value="Eliminar" onclick="removeUser('{{ thisUsuario }}')">
-                                    <input type="hidden" name="username_from_selector" value="{{ thisUsuario }}">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Editar nota</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post" id="main-form">
+                            <div class="card">
+                                <label for="title" class="card-header">Título:</label>
+                                <div class="card-body">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{ titulo }}">
                                 </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-            <label>Nuevo usuario:</label>
-            <input type="text" id="user-add-name">
-            <input type="button" name="buttonUsers" value="Añadir" onclick="addUser()">
-            <br>
-            {% if allFolders %}
-                <div class="form-group">
-                    <label for="selectFolder">Carpeta: </label>
-                    <select name="selectFolder" id="selectFolder">
-                        <option value="None"></option>
-                        {% for thisFolder in allFolders %}
-                            {% if actualNote in thisFolder.notas %}
-                                <option value="{{ thisFolder.__oid__ }}" selected>{{ thisFolder.nombre }}</option>
-                            {% else %}
-                                <option value="{{ thisFolder.__oid__ }}">{{ thisFolder.nombre }}</option>
+                            </div>
+                            <br>
+                            <div class="card">
+                                <label for="content" class="card-header">Contenido:</label>
+                                <textarea class="form-control" id="content" name="content" rows="5">{{ contenido }}</textarea>
+                            </div>
+                            <br>
+                            <div id="div-user-selector" class="card">
+                                <label for="user-add-name" class="card-header">Colaboradores:</label>
+                                {% if users %}
+                                    <div class="card-body">
+                                        <ul id="list-user-selector" class="list-group list-group-flush">
+                                            {% for thisUsuario in users %}
+                                                <li id="li-user-{{ thisUsuario }}" class="list-group-item">
+                                                    <div id="div-user-{{ thisUsuario }}">
+                                                        <label id="username_to_selector">{{ thisUsuario }}&nbsp;&nbsp;&nbsp;</label>
+                                                        <button type="button" class="btn btn-secondary btn-sm" name="buttonUsers" onclick="removeUser('{{ thisUsuario }}')">Eliminar</button>
+                                                        <input type="hidden" name="username_from_selector" value="{{ thisUsuario }}">
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                                <div class="card-footer input-group">
+                                    <input type="text" class="form-control" id="user-add-name">
+                                    <div class="input-group-append">
+                                         <button type="button" class="btn btn-primary" name="buttonUsers" onclick="addUser()">Añadir</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            {% if allFolders %}
+                                <div class="card">
+                                    <label for="selectFolder" class="card-header">Carpeta:</label>
+                                    <div class="card-body">
+                                         <select class="form-control" name="selectFolder" id="selectFolder">
+                                            <option value="None"></option>
+                                            {% for thisFolder in allFolders %}
+                                                {% if actualNote in thisFolder.notas %}
+                                                    <option value="{{ thisFolder.__oid__ }}" selected>{{ thisFolder.nombre }}</option>
+                                                {% else %}
+                                                    <option value="{{ thisFolder.__oid__ }}">{{ thisFolder.nombre }}</option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
                             {% endif %}
-                        {% endfor %}
-                    </select>
+                            <button type="submit" class="btn btn-success" name="buttonAction" value="edit">Editar</button>
+                            <button type="submit" class="btn btn-secondary" name="buttonAction" value="return">Volver</button>
+                        </form>
+                    </div>
                 </div>
-            {% endif %}
-            <br>
-            <button type="submit" name="buttonAction" value="edit">Editar</button>
-            <button type="submit" name="buttonAction" value="return">Volver</button>
-        </form>
+            </div>
+        </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Trabajo con casi todas las funcionalidades implementadas">
+    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Terminada parte funcional">
+      <change afterPath="$PROJECT_DIR$/views/user/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/User.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/User.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/user_selector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/user_selector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/folder/folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/folder/folder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/folder/templates/editFolder.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/folder/templates/editFolder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/folder/templates/folder.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/folder/templates/folder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/note/note.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/note/note.py" afterDir="false" />
@@ -16,6 +15,9 @@
       <change beforePath="$PROJECT_DIR$/views/note/templates/note.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/note/templates/note.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/note/templates/noteMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/note/templates/noteMenu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/note/templates/seeNote.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/note/templates/seeNote.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/static/register.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +75,11 @@
       <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\folder\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\user\templates" />
       <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\note\templates" />
       <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\static" />
       <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views\folder\templates" />
       <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy" />
-      <recent name="C:\Users\pedro\PycharmProjects\SharedNotesPy\views" />
     </key>
   </component>
   <component name="RunManager">

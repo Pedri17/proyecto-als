@@ -2,66 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note Manager</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos adicionales */
+        #div-usuario {
+            margin-bottom: 20px;
+        }
+        #folders-container,
+        #notes-container {
+            margin-top: 20px;
+        }
+        #folders-container h2,
+        #notes-container h2 {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1> Note Manager </h1>
-    <div id="div-usuario">
-        Usuario:
-        <b>{{ currentUser }}</b>
-        <form action="" method="post">
-            <button type="submit" name="buttonNotes" value="userExit">Desconectarse</button>
-        </form>
-    </div>
-    <br>
-    <form action="" method="post">
-        <button type="submit" name="buttonNotes" value="newNote">Nueva nota</button>
-        <button type="submit" name="buttonNotes" value="newFolder">Nueva carpeta</button>
-    </form>
-    <div id="folders-container">
-        {% if folders %}
-            <h2> Carpetas </h2>
-            {% for thisFolder in folders %}
+    <div class="container">
+        <h1 class="text-center mb-4">Note Manager</h1>
+        <div id="div-usuario" class="text-center">
+            <p>Usuario: <b>{{ currentUser }}</b></p>
+            <form action="" method="post">
+                <button type="submit" class="btn btn-danger" name="buttonNotes" value="userExit">Desconectarse</button>
+            </form>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-6">
                 <form action="" method="post">
-                    <h3>
-                        {{ thisFolder.nombre }}
-                        <button type="submit" name="buttonNotes" value="folder/{{ thisFolder.__oid__ }}/edit">Editar</button>
-                        <button type="submit" name="buttonNotes" value="folder/{{ thisFolder.__oid__ }}/delete">Eliminar</button>
-                    </h3>
+                    <button type="submit" class="btn btn-primary mr-2" name="buttonNotes" value="newNote">Nueva nota</button>
+                    <button type="submit" class="btn btn-primary" name="buttonNotes" value="newFolder">Nueva carpeta</button>
                 </form>
-                {% if thisFolder.notas %}
-                    <ul>
-                        {% for thisNote in thisFolder.notas %}
-                            <li>
-                                {% if thisNote %}
-                                    <form action="" method="post">
-                                        {{ thisNote.titulo }}&nbsp;&nbsp;
-                                        <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/see">Ver</button>
-                                        <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/edit">Editar</button>
-                                        <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/delete">Eliminar</button>
-                                    </form>
-                                {% endif %}
+            </div>
+        </div>
+        <div id="folders-container">
+            {% if folders %}
+                <h2>Carpetas</h2>
+                {% for thisFolder in folders %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ thisFolder.nombre }}</h3>
+                            <form action="" method="post">
+                                <button type="submit" class="btn btn-info mr-2" name="buttonNotes" value="folder/{{ thisFolder.__oid__ }}/edit">Editar</button>
+                                <button type="submit" class="btn btn-danger" name="buttonNotes" value="folder/{{ thisFolder.__oid__ }}/delete">Eliminar</button>
+                            </form>
+                        </div>
+                        {% if thisFolder.notas %}
+                            <ul class="list-group list-group-flush">
+                                {% for thisNote in thisFolder.notas %}
+                                    <li class="list-group-item">
+                                        <form action="" method="post">
+                                            <div class="row">
+                                                <div class="col-md-auto">{{ thisNote.titulo }}</div>
+                                                <div class="col input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button type="submit" class="btn btn-sm btn-info" name="buttonNotes" value="{{ thisNote.__oid__ }}/see">Ver</button>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-sm btn-warning" name="buttonNotes" value="{{ thisNote.__oid__ }}/edit">Editar</button>
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn btn-sm btn-danger" name="buttonNotes" value="{{ thisNote.__oid__ }}/delete">Eliminar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div id="notes-container">
+            {% if notes %}
+                <h2>Notas</h2>
+                <div class="card mb-3">
+                    <ul class="list-group list-group-flush">
+                        {% for thisNote in notes %}
+                            <li class="list-group-item">
+                                <form action="" method="post">
+                                    <div class="row">
+                                        <div class="col-md-auto">{{ thisNote.titulo }}</div>
+                                        <div class="col input-group">
+                                            <div class="input-group-prepend">
+                                                <button type="submit" class="btn btn-sm btn-info" name="buttonNotes" value="{{ thisNote.__oid__ }}/see">Ver</button>
+                                            </div>
+                                            <button type="submit" class="btn btn-sm btn-warning" name="buttonNotes" value="{{ thisNote.__oid__ }}/edit">Editar</button>
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-sm btn-danger" name="buttonNotes" value="{{ thisNote.__oid__ }}/delete">Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </li>
                         {% endfor %}
                     </ul>
-                {% endif %}
-                <br>
-            {% endfor %}
-        {% endif %}
+                </div>
+            {% endif %}
+        </div>
     </div>
-    <br>
-    <div id="notes-container">
-        {% if notes %}
-            <h2> Notas </h2>
-            {% for thisNote in notes %}
-                <form action="" method="post">
-                    {{ thisNote.titulo }}
-                    <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/see">Ver</button>
-                    <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/edit">Editar</button>
-                    <button type="submit" name="buttonNotes" value="{{ thisNote.__oid__ }}/delete">Eliminar</button>
-                </form>
-            {% endfor %}
-        {% endif %}
-    </div>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

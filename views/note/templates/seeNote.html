@@ -2,40 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver nota</title>
-    </head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 <body>
-    <div class="login-container">
-        <h2>Ver nota</h2>
-        <form action="" method="post">
-            <div class="form-group">
-                Título:
-                <b id="title" > {{ titulo }}</b>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Ver nota</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="card">
+                                <label for="title" class="card-header">Título:</label>
+                                <div class="card-body">
+                                    <b id="title">{{ titulo }}</b>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card">
+                                <div class="card-header">
+                                    <label for="content">Contenido:</label>
+                                </div>
+                                <div class="card-body">
+                                    <p id="content" class="form-control-static">{{ contenido }}</p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card">
+                                <label for="creator" class="card-header">Creador:</label>
+                                <div class="card-body">
+                                    <b id="creator" class="form-control-static">{{ creador }}</b>
+                                </div>
+                            </div>
+                            <br>
+                            <div id="div-user-selector" class="card">
+                                <div class="card-header">
+                                    <label>Colaboradores:</label>
+                                </div>
+                                {% if users %}
+                                    <ul class="list-group list-group-flush">
+                                        {% for thisUsuario in users %}
+                                            <li class="list-group-item">{{ thisUsuario }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-secondary" name="buttonAction" value="return">Volver</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                Contenido:
-                <br>
-                <p id="content">{{ contenido }}</p>
-            </div>
-            <br>
-            <div class="form-group">
-                Creador:
-                <b id="creator">{{ creador }}</b>
-            </div>
-             <div id="div-user-selector">
-                Colaboradores:
-                <br>
-                {% if users %}
-                    <ul>
-                        {% for thisUsuario in users %}
-                            <li id="username_to_selector">{{ thisUsuario }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-            <br>
-            <button type="submit" name="buttonAction" value="return">Volver</button>
-        </form>
+        </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
