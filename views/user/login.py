@@ -19,7 +19,7 @@ login_blueprint, srp = get_blueprint()
 
 @login_blueprint.route("/")
 def login():
-    return flask.send_from_directory(login_blueprint.static_folder, "login.html")
+    return flask.render_template("login.html")
 
 
 @login_blueprint.route("/", methods=["POST"])
@@ -31,23 +31,23 @@ def answer():
     if buttonAction == "login":
         if User.current():
             flask_login.logout_user()
-            flask.flash("Error inesperado.")
+            flask.flash("Error inesperado." "login")
             return flask.redirect("/")
         ...
 
         if (not username
                 or not password):
-            flask.flash("Faltan credenciales")
+            flask.flash("Faltan credenciales", "login")
             return flask.redirect("/")
         ...
 
         usr = User.find(srp, username)
 
         if not usr:
-            flask.flash("Usuario inexistente, revisa que está escrito correctamente")
+            flask.flash("Usuario inexistente, revisa que está escrito correctamente", "login")
             return flask.redirect("/")
         if not usr.chk_password(password):
-            flask.flash("Contraseña incorrecta, asegúrate de haberla escrito correctamente")
+            flask.flash("Contraseña incorrecta, asegúrate de haberla escrito correctamente", "login")
             return flask.redirect("/")
 
         flask_login.login_user(usr)

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Trabajo terminado">
+    <list default="true" id="9dd0eec3-3d00-48fa-83ca-106d03c395f7" name="Changes" comment="Añadir carpeta js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user_selector.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user_selector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/response.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +181,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716467224309</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Eliminar archivos sobrantes y renombrar carpeta js">
+      <option name="closed" value="true" />
+      <created>1716472018023</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716472018023</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Añadir carpeta js">
+      <option name="closed" value="true" />
+      <created>1716472066308</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716472066308</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +233,8 @@
     <MESSAGE value="Terminados login y register" />
     <MESSAGE value="Trabajo con casi todas las funcionalidades implementadas" />
     <MESSAGE value="Trabajo terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trabajo terminado" />
+    <MESSAGE value="Eliminar archivos sobrantes y renombrar carpeta js" />
+    <MESSAGE value="Añadir carpeta js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadir carpeta js" />
   </component>
 </project>
